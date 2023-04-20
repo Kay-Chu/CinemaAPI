@@ -1,0 +1,10 @@
+CREATE TABLE users (
+    id INT(11) PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(32) UNIQUE NOT NULL,
+    password_hash CHAR(72) NOT NULL
+);
+
+CREATE TABLE variables (
+    name VARCHAR(32) PRIMARY KEY,
+    value VARCHAR(128)
+);

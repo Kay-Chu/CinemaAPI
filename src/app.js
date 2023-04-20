@@ -1,14 +1,15 @@
 import express from "express";
 import bodyParser from "body-parser";
 // import cors from 'cors';
-import { testConnection } from "./database/connection.js";
-import login from "./login.js";
+import login from "./endpoints/login.js";
+import register from "./endpoints/register.js";
+import getFeatured from "./endpoints/featured.js";
 import { PasswordNotMatchError, UserNotFoundError } from './Errors.js';
-import register from "./register.js";
 
 const app = express();
 const jsonParser = bodyParser.json();
 const port = 80;
+
 
 // app.use(cors({
 //     origin: '*'
@@ -36,7 +37,12 @@ app.post('/api/login', jsonParser, (req, res) => {
                 passwordMatch: false
             });
         }
-        console.log(error);
+    });
+});
+
+app.get('/api/featured/:num?', jsonParser, (req, res) => {
+    getFeatured(req.params.num).then((result) => {
+        res.json(result);
     });
 });
 

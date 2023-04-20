@@ -8,25 +8,6 @@ const pool = mariadb.createPool({
   connectionLimit: 5
 });
 
-async function testConnection() {
-  let conn;
-  try {
-    conn = await pool.getConnection();
-    const res = await conn.query("SHOW tables");
-    // console.log(res);
-    return res;
-  //   const res = await conn.query("INSERT INTO myTable value (?, ?)", [1, "mariadb"]);
-  //   console.log(res);
-
-  } catch (err) {
-    throw err;
-  } finally {
-    if (conn) {
-      conn.end();
-    }
-  }
-}
-
 async function getJWTSecret() {
   let conn;
   try {
@@ -72,4 +53,12 @@ async function getUserByUsername(username) {
   }
 }
 
-export { testConnection, getJWTSecret, getUserById, getUserByUsername };
+async function saveMovieToDatabase(movie) {
+
+}
+
+async function getMovieFromDatabaseByEntryId(entryId) {
+
+}
+
+export { getJWTSecret, getUserById, getUserByUsername, saveMovieToDatabase, getMovieFromDatabaseByEntryId };

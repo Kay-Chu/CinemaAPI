@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import { PasswordNotMatchError, UserNotFoundError } from './Errors.js';
-import { getJWTSecret, getUserByUsername } from "./database/connection.js";
+import { PasswordNotMatchError, UserNotFoundError } from '../Errors.js';
+import { getJWTSecret, getUserByUsername } from "../database/connection.js";
 
 async function login(username, password) {
     try {
