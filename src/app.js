@@ -8,7 +8,7 @@ import { PasswordNotMatchError, UserNotFoundError } from './Errors.js';
 
 const app = express();
 const jsonParser = bodyParser.json();
-const port = 80;
+const port = 3001;
 
 
 // app.use(cors({
